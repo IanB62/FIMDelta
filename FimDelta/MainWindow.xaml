@@ -84,8 +84,8 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="_File" >
-                <MenuItem Header="_Open" Click="OpenButton_Click"/>
-                <MenuItem Header="_Save As" Click="Button_Click"/>
+                <MenuItem Header="_Open" Click="Open_Click"/>
+                <MenuItem Header="_Save As" Click="Save_Click"/>
                 <Separator />
                 <MenuItem Header="Save _Exclusions" Click="Save_Exclusions_Click"/>
                 <MenuItem Header="_Load Exclusions" Click="Load_Exclusions_Click"/>
@@ -97,8 +97,8 @@
                 <MenuItem Header="_Operation" x:Name="MenuItem_Group_Operation" local:MenuItemExtensions.GroupName="someGroup" IsCheckable="True"  Click="MenuItem_Group_Operation_Click"/>
                 <MenuItem Header="Object _Type" x:Name="MenuItem_Group_Object" local:MenuItemExtensions.GroupName="someGroup" IsCheckable="True"  Click="MenuItem_Group_Object_Click"/>
             </MenuItem>
-            <MenuItem Header="Help" HorizontalAlignment="Right">
-                <MenuItem Header="About" Click="Help_About_Click"/>
+            <MenuItem Header="_Help" HorizontalAlignment="Right">
+                <MenuItem Header="_About" Click="Help_About_Click"/>
             </MenuItem>
         </Menu>
         <TreeView x:Name="tree" Grid.Row="1"

@@ -113,6 +113,10 @@ namespace FimDelta
             {
                 delta = DeltaParser.ReadDelta(SourceFileName, TargetFileName, ChangesFileName);
             }
+            catch (System.IO.FileNotFoundException ex)
+            {
+                MessageBox.Show(string.Format("Unable to open files: {0}", ex.Message), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);

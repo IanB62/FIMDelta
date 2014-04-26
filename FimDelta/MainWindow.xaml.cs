@@ -38,27 +38,42 @@ namespace FimDelta
                 
             view = (CollectionViewSource)FindResource("ObjectsView");
 
-            Loaded += new RoutedEventHandler(OpenButton_Click);
+            Loaded += new RoutedEventHandler(Open_Click);
         }
 
 
-        private void sortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void Open_Click(object sender, RoutedEventArgs e)
         {
-            if (view == null || deltaVC == null) return;
+            OpenFiles of = new OpenFiles();
 
-            var sortType = ((ComboBox)sender).SelectedIndex;
+            if (!string.IsNullOrEmpty(SourceFileName))
+            {
+                of.SourceFileName = SourceFileName;
+            }
 
-            if (sortType == 1)
-                deltaVC.Grouping = GroupType.State;
-            else if (sortType == 2)
-                deltaVC.Grouping = GroupType.ObjectType;
-            else
-                deltaVC.Grouping = GroupType.None;
+            if (!string.IsNullOrEmpty(TargetFileName))
+            {
+                of.TargetFileName = TargetFileName;
+            }
 
-            view.Source = deltaVC.View;
+            if (!string.IsNullOrEmpty(ChangesFileName))
+            {
+                of.ChangesFileName = ChangesFileName;
+            }
+
+            of.Owner = this;
+            of.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
+            of.ShowDialog();
+            if (of.delta != null)
+            {
+                delta = of.delta;
+                deltaVC = new DeltaViewController(delta);
+                view.Source = deltaVC.View;
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             if (delta == null) return;
 
@@ -110,36 +125,6 @@ namespace FimDelta
             if (result == true)
             {
                 DeltaParser.LoadExclusions(delta, dlg.FileName);
-            }
-        }
-
-        private void OpenButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFiles of = new OpenFiles();
-
-            if (!string.IsNullOrEmpty(SourceFileName))
-            {
-                of.SourceFileName = SourceFileName;
-            }
-
-            if (!string.IsNullOrEmpty(TargetFileName))
-            {
-                of.TargetFileName = TargetFileName;
-            }
-
-            if (!string.IsNullOrEmpty(ChangesFileName))
-            {
-                of.ChangesFileName = ChangesFileName;
-            }
-
-            of.Owner = this;
-            of.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner;
-            of.ShowDialog();
-            if (of.delta != null)
-            {
-                delta = of.delta;
-                deltaVC = new DeltaViewController(delta);
-                view.Source = deltaVC.View;
             }
         }
 
