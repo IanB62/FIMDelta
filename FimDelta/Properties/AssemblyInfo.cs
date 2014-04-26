@@ -8,11 +8,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FimDelta")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("FIM Delta tool by Alex Skalozub, Contributions by Rex Wheeler, Certified Security Solutions http://www.css-security.com")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FimDelta")]
-[assembly: AssemblyCopyright("Copyright © Alex Skalozub 2011-2013")]
+[assembly: AssemblyCopyright("Copyright © Alex Skalozub 2011-2013, CSS 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -50,6 +50,6 @@ using System.Windows;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.*")]
+//[assembly: AssemblyVersion("1.0.0.0")]
+//[assembly: AssemblyFileVersion("1.0.0.0")]

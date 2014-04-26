@@ -55,6 +55,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,7 +69,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItemExtensions.cs" />
     <Compile Include="DeltaViewController.cs" />
+    <Compile Include="OpenFiles.xaml.cs">
+      <DependentUpon>OpenFiles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AttributeNode.cs" />
     <Compile Include="ViewModel\GroupByNode.cs" />
     <Compile Include="ViewModel\INode.cs" />
@@ -75,6 +87,10 @@
     <Compile Include="ViewModel\ReferencedByNode.cs" />
     <Compile Include="Xml\Delta.cs" />
     <Compile Include="Xml\DeltaState.cs" />
+    <Compile Include="Xml\ExclusionAttributeValue.cs" />
+    <Compile Include="Xml\ExclusionObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Xml\Export.cs" />
     <Compile Include="Xml\ExportObject.cs" />
     <Compile Include="Xml\ImportChange.cs" />
@@ -99,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OpenFiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NodeTemplateSelector.cs" />
@@ -108,16 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <None Include="app.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +151,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
