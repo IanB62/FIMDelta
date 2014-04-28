@@ -8,11 +8,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FimDelta")]
-[assembly: AssemblyDescription("FIM Delta tool by Alex Skalozub, Contributions by Rex Wheeler, Certified Security Solutions http://www.css-security.com")]
+[assembly: AssemblyDescription("FIM Delta tool by Alex Skalozub, Updated by Rex Wheeler, Certified Security Solutions http://www.css-security.com")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FimDelta")]
-[assembly: AssemblyCopyright("Copyright © Alex Skalozub 2011-2013, CSS 2014")]
+[assembly: AssemblyCopyright("Copyright CSS 2014, Alex Skalozub 2011-2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
