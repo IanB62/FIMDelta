@@ -1,6 +1,3 @@
-# Adapted from Microsoft's ExportSchema.ps1 and ExportPolicy.ps1 scripts 
-# from http://technet.microsoft.com/en-us/library/ff400275%28v=ws.10%29.aspx
-#
 # Rex Wheeler, Certified Security Solutions http://www.css-security.com
 # Last updated 2014-04-27
 # No warranty of any kind granted, use at own risk...
