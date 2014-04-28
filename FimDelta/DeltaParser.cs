@@ -94,6 +94,9 @@ namespace FimDelta
                 if (excludedChangeList.Count > 0 || deltaObject.IsIncluded == false)
                 {
                     ExclusionObject eo = new ExclusionObject(deltaObject.SourceObjectIdentifier, deltaObject.TargetObjectIdentifier, deltaObject.ObjectType);
+
+                    //TODO: Consider not writing out the changes if they are all excluded. We would
+                    // need to make sure that the load process would properly exclude all sub objects
                     eo.Changes = excludedChangeList.ToArray();
 
                     eo.AllChangesExcluded = allChangesExcluded;
