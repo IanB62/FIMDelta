@@ -2,7 +2,7 @@
 
 Helper utility to selectively apply changes between development and production FIM2010 servers. 
 
-![screenshot](screenshot.png)
+![screenshot](screenshot.jpg)
 
 ## Usage
 
