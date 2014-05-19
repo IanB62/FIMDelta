@@ -1,5 +1,5 @@
 # Rex Wheeler, Certified Security Solutions http://www.css-security.com
-# Last updated 2014-04-27
+# Last updated 2014-05-18
 # No warranty of any kind granted, use at own risk...
 
 param(
@@ -7,6 +7,10 @@ param(
 [string]$TargetDirectory = $(throw "-TargetDirectory is required"),
 [string]$Category = $(throw "-category is required (typically 'schema' or 'policy_portal'")
 )
+
+# Get PS Version and fix $PSScriptRoot if needed
+$PsVersion3 = (Get-Host | select -ExpandProperty Version | select -ExpandProperty Major) -gt 2
+if (-not $PsVersion3) {$PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent}
 
 if ((Test-Path $SourceDirectory -PathType Container) -eq 0) {throw "Source directory does not exist"}
 if ((Test-Path $TargetDirectory -PathType Container) -eq 0) {throw "Target directory does not exist"}

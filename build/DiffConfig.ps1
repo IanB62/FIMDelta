@@ -2,7 +2,7 @@
 # from http://technet.microsoft.com/en-us/library/ff400275%28v=ws.10%29.aspx
 #
 # Rex Wheeler, Certified Security Solutions http://www.css-security.com
-# Last updated 2014-04-27
+# Last updated 2014-05-18
 # No warranty of any kind granted, use at own risk...
 
 # SourceDirectory contains the files from ExportConfig that came from the environment or configuration you are migrating FROM
@@ -99,6 +99,9 @@ function perform_diff([string]$SourceDirectory_filename, [string]$TargetDirector
 
 }
 
+# Get PS Version and fix $PSScriptRoot if needed
+$PsVersion3 = (Get-Host | select -ExpandProperty Version | select -ExpandProperty Major) -gt 2
+if (-not $PsVersion3) {$PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent}
 
 if(@(get-pssnapin | where-object {$_.Name -eq "FIMAutomation"} ).count -eq 0) {add-pssnapin FIMAutomation}
 
